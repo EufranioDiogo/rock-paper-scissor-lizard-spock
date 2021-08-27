@@ -3,35 +3,115 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <link rel="stylesheet" href="CSS/index.css">
+  <link rel="stylesheet" href="CSS/universal.css">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
-  <title>Frontend Mentor | Rock, Paper, Scissors</title>
-
-  Score
-  Rules
-
-  You Picked
-  The House Picked
-
-  You Win
-  You Lose
-
-  Play Again
+  <title>Rock, Paper, Scissors | Eufránio Diogo | Frontend Mentor | </title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    .attribution a { color: hsl(0, 0%, 100%); }
   </style>
 </head>
 <body>
+  <div class="header-of-game">
+    <img src="images/logo.svg" alt="Rock Paper Scissors Logo" class="header-of-game--logo">
+
+    <div class="header-of-game--score-board">
+      <p class="score-board--text">Score</p>
+
+      <span class="score-board--point">0</span>
+    </div>
+  </div>
 
 
+  <div class="control-panel-of-game">
+    <button value="1" class="game-button medium-size paper-button">
+
+    </button>
+
+    <button value="2" class="game-button medium-size scissor-button">
+      
+    </button>
+
+    <button value="3" class="game-button medium-size rock-button">
+      
+    </button>
+  </div>
+
+  
+
+  <div class="picked-panel">
+    <div class="human-picked-panel picked-panel--side">
+      <span class="picked-panel--text">
+        You picked
+      </span>
+
+      <button class="game-button big-size undefined">
+        <div class="level-1-win-effect level-win-effect">
+
+        </div>
+
+        <div class="level-2-win-effect level-win-effect">
+          
+        </div>
+
+        <div class="level-3-win-effect level-win-effect">
+          
+        </div>
+      </button>
+    </div>
+
+    <div class="result-div">
+      <span class="result-text">
+        ???
+      </span>
+  
+      <button class="play-again-button">
+        play again
+      </button>
+    </div>
+
+    <div class="house-picked-panel picked-panel--side">
+      <span class="picked-panel--text">
+        The House picked
+      </span>
+
+      <button class="game-button big-size undefined">
+        <div class="level-1-win-effect level-win-effect">
+
+        </div>
+
+        <div class="level-2-win-effect level-win-effect">
+          
+        </div>
+
+        <div class="level-3-win-effect level-win-effect">
+          
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <div class="rules-model-fixed">
+    <div class="rules-model-container">
+      <h2 class="rules-title">Rules</h2>
+
+      <img src="images/icon-close.svg" alt="close icon" class="close-rules-modal-button">
+
+      <img src="images/image-rules.svg" alt="rules image" class="rules-img">
+    </div>
+  </div>
+  <button class="rules-button">
+    Rules
+  </button>
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div>
+  <script src="JS/index.js"></script>
 </body>
 </html>

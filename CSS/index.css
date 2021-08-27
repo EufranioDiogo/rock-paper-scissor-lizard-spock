@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600&display=swap');
+
+html {
+    font-size: 62.5%;
+}
+body {
+    background: radial-gradient(circle at center, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    font-family: 'Barlow Semi Condensed', sans-serif, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+}
+.header-of-game {
+    width: 50%;
+    padding: 2rem 4rem;
+    border-radius: 1rem;
+    border: 0.2rem solid hsl(217, 16%, 45%);
+    position: relative;
+    margin: 4rem auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-of-game--score-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 2rem 4rem;
+    border-radius: 0.5rem;
+    
+}
+.score-board--text {
+    font-size: 1.8rem;
+    color: hsl(229, 64%, 46%);
+}
+
+.score-board--point {
+    font-size: 5.2rem;
+    color: hsl(229, 25%, 31%);
+    font-weight: 600;
+}
+.control-panel-of-game {
+    position: relative;
+    margin: 6.5rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    width: 35%;
+    justify-content: center;
+}
+.game-button {
+    border-radius: 50%;
+    border: 3rem solid hsl(349, 71%, 52%);
+    box-sizing: content-box;
+    background-color: #fff;
+    cursor: pointer;
+    box-shadow: 0rem 1rem 0.0rem inset rgba(0, 0, 0, 0.151);
+    position: relative;
+    transition: 0.5s;
+}
+.control-panel-of-game .game-button:hover {
+    transform: scale(1.05);
+}
+.game-button:after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.medium-size {
+    width: 17.2rem;
+    height: 17.2rem;
+    background-size: 8.2rem !important;
+}
+.big-size {
+    width: 24.2rem;
+    height: 24.2rem;
+    background-size: 12.2rem !important;
+}
+.game-button:first-child {
+    margin-right: 12.5rem;
+}
+.paper-button {
+    background: no-repeat url('../images/icon-paper.svg') center #fff;
+    border-color: hsl(230, 89%, 62%);
+}
+.rock-button {
+    background: no-repeat url('../images/icon-rock.svg') center #fff;
+}
+.scissor-button {
+    background: no-repeat url('../images/icon-scissors.svg') center #fff;
+    border-color: hsl(39, 89%, 49%);
+}
+.picked-panel {
+    display: flex;
+    margin: 0;
+    margin: 6.5rem auto;
+    position: relative;
+    /*background-color:hsl(39, 89%, 49%);*/
+    width: 60%;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+.picked-panel--side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.picked-panel--text {
+    font-size: 3.2rem;
+    margin: 2rem 0;
+    color: rgb(255, 255, 255);
+    margin-bottom: 6.2rem;
+    font-weight: 600;
+}
+
+.level-win-effect {
+    border-radius: 50%;
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: hsla(0, 0%, 100%, 0.027);
+    z-index: -1;
+}
+.game-button-active .level-1-win-effect {
+    width: 160%;
+    height: 160%;
+    transition: 0.50s;
+}
+.game-button-active .level-2-win-effect {
+    width: 220%;
+    height: 220%;
+    transition: 0.75s;
+}
+.game-button-active .level-3-win-effect {
+    width: 280%;
+    height: 280%;
+    transition: 1s;
+}
+
+.result-div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.result-text {
+    font-size: 4.2rem;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+}
+.play-again-button {
+    background-color: white;
+    padding: 2rem 4rem;
+    font-size: 2.4rem;
+    border-radius: 1rem;
+    box-shadow: 0.5rem 0.5rem 0.0rem inset rgba(0, 0, 0, 0.151);
+    text-transform: uppercase;
+    margin: 0 4rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+.play-again-button:hover {
+    box-shadow: 1rem 1rem 0.0rem inset rgba(0, 0, 0, 0.151);
+}
+.rules-button {
+    padding: 2rem 4rem;
+    border-radius: 1rem;
+    border: 1rem;
+    border: 0.2rem solid hsl(217, 16%, 45%);
+    background-color: transparent;
+    color: #fff;
+    font-size: 2.2rem;
+    cursor: pointer;
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+}
+.rules-button:hover {
+    background-color: hsl(217, 16%, 45%);
+}
+.rules-model-fixed {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.575);
+    z-index: 1;
+    transition: 1s;
+    opacity: 0;
+    display: none;
+}
+.rules-model-container {
+    padding: 4rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    position: relative;
+}
+.rules-title {
+    font-size: 3.2rem;
+    margin-bottom: 3.2rem;
+}
+.close-rules-modal-button {
+    position: absolute;
+    right: 10%;
+    top: 10%;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.close-rules-modal-button:hover {
+    transform: scale(1.1);
+}
+.rules-img {
+    width: 37.8rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .header-of-game {
+        padding: 1rem;
+        width: 90%;
+    }
+    .header-of-game--logo {
+        height: 6.4rem;
+    }
+    .header-of-game--score-board {
+        padding: 1rem 2rem;
+    }
+    .control-panel-of-game {
+        width: 90%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .game-button:first-child {
+        margin-right: 0;
+    }
+    .game-button {
+        margin: 1rem 0;
+    }
+    .rules-button {
+        position: relative;
+        margin: 1rem auto;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+    }
+    .picked-panel {
+        flex-direction: column;
+    }
+    .result-div {
+        margin: 3rem 0;
+    }
+    .rules-title {
+        margin-left: 2.4rem;
+    }
+    .rules-model-container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .close-rules-modal-button {
+        right: unset;
+        top: unset;
+        bottom: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        position: absolute;
+    }
+}
