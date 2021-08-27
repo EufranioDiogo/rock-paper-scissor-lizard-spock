@@ -1,7 +1,7 @@
 let score = 0;
 const controlPanelOfGame = document.querySelector('.control-panel-of-game');
 const pickedPanel = document.querySelector('.picked-panel');
-
+const robotLastPossibleChoice = 5;
 /*
 1 - Paper
 2 - Scissor
@@ -12,11 +12,15 @@ const mappingDecisionToButton = {
     '1': 'paper-button',
     '2': 'scissor-button',
     '3': 'rock-button',
-    '4': 'undefined'
+    '4': 'spock-button',
+    '5': 'lizard-button',
+    '6': 'undefined'
 }
 
 function generateRobotChoose() {
-    return (Math.floor(Math.random()) * 3 + 1);
+    const number = (Math.floor(Math.random() * robotLastPossibleChoice + 1));
+    console.log(number)
+    return number;
 }
 
 function resolveDecisions(userChoose, robotChoose) {
@@ -25,21 +29,57 @@ function resolveDecisions(userChoose, robotChoose) {
             return 0;
         } else if (robotChoose == 2) {
             return -1;
-        } else {
+        } else if (robotChoose == 3) {
             return 1;
+        } else if (robotChoose == 4) {
+            return 1;
+        } else {
+            return -1;
         }
     } else if (userChoose == 2) {
         if (robotChoose == 1) {
             return 1;
         } else if (robotChoose == 2) {
             return 0;
-        } else {
+        } else if (robotChoose == 3) {
             return -1;
+        } else if (robotChoose == 4) {
+            return -1;
+        } else {
+            return 1;
         }
-    } else {
+    } else if (userChoose == 3) {
         if (robotChoose == 1) {
             return -1;
         } else if (robotChoose == 2) {
+            return 1;
+        } else if (robotChoose == 3){
+            return 0;
+        } else if (robotChoose == 4) {
+            return -1;
+        } else {
+            return 1;
+        }
+    } else if (userChoose == 4) {
+        if (robotChoose == 1) {
+            return -1;
+        } else if (robotChoose == 2) {
+            return 1;
+        } else if (robotChoose == 3){
+            return 1;
+        } else if (robotChoose == 4) {
+            return 0;
+        } else {
+            return -1;
+        }
+    } else if (userChoose == 5) {
+        if (robotChoose == 1) {
+            return 1;
+        } else if (robotChoose == 2) {
+            return -1;
+        } else if (robotChoose == 3){
+            return -1;
+        } else if (robotChoose == 4) {
             return 1;
         } else {
             return 0;
@@ -100,6 +140,7 @@ function makeChoice(event) {
         winEffect(result);
         resultStatus(result);
     }, 3000)
+    drawIlustrationOfDecisions(userChoose, '6');
 }
 
 
@@ -109,9 +150,9 @@ document.querySelectorAll('.control-panel-of-game .game-button').forEach(element
 
 document.querySelector('.play-again-button').addEventListener('click', () => {
     pickedPanel.style.display = 'none';
-    controlPanelOfGame.style.display = 'flex';
+    controlPanelOfGame.style.display = 'grid';
     document.querySelector('.result-text').innerText = "???";
-    drawIlustrationOfDecisions(4, 4)
+    drawIlustrationOfDecisions('6', '6');
 });
 
 document.querySelector('.close-rules-modal-button').addEventListener('click', (event) => {

@@ -45,10 +45,14 @@ body {
 .control-panel-of-game {
     position: relative;
     margin: 6.5rem auto;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     width: 35%;
-    justify-content: center;
+    grid-template-areas: 
+    ". scissor ."
+    "spock . paper"
+    "lizard . rock";
 }
 .game-button {
     border-radius: 50%;
@@ -63,16 +67,6 @@ body {
 .control-panel-of-game .game-button:hover {
     transform: scale(1.05);
 }
-.game-button:after {
-    content: "";
-    position: absolute;
-    width: 50%;
-    height: 50%;
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 .medium-size {
     width: 17.2rem;
     height: 17.2rem;
@@ -84,18 +78,69 @@ body {
     background-size: 12.2rem !important;
 }
 .game-button:first-child {
-    margin-right: 12.5rem;
 }
 .paper-button {
     background: no-repeat url('../images/icon-paper.svg') center #fff;
     border-color: hsl(230, 89%, 62%);
+    grid-area: 'paper';
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
 }
 .rock-button {
     background: no-repeat url('../images/icon-rock.svg') center #fff;
+    grid-area: 'rock';
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
 }
 .scissor-button {
     background: no-repeat url('../images/icon-scissors.svg') center #fff;
     border-color: hsl(39, 89%, 49%);
+    grid-area: 'scissor';
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+.undefined {
+    border-color: hsl(0, 0%, 25%);
+}
+.spock-button {
+    background: no-repeat url('../images/icon-spock.svg') center #fff;
+    border-color: hsl(189, 59%, 53%);
+    grid-area: 'spock';
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    margin-top: -2rem;
+}
+.lizard-button {
+    background: no-repeat url('../images/icon-lizard.svg') center #fff;
+    border-color: hsl(261, 73%, 60%);
+    grid-area: 'lizard';
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.control-panel-of-game .lizard-button {
+    transform: translateX(40%);
+    margin-top: 2rem;
+}
+.control-panel-of-game .lizard-button:hover {
+    transform: translateX(40%) scale(1.05);
+}
+.control-panel-of-game .rock-button {
+    transform: translateX(-40%);
+    margin-top: 2rem;
+}
+.control-panel-of-game .rock-button:hover {
+    transform: translateX(-40%) scale(1.05);
 }
 .picked-panel {
     display: flex;
@@ -178,15 +223,16 @@ body {
 .rules-button {
     padding: 2rem 4rem;
     border-radius: 1rem;
-    border: 1rem;
     border: 0.2rem solid hsl(217, 16%, 45%);
     background-color: transparent;
     color: #fff;
     font-size: 2.2rem;
     cursor: pointer;
-    position: absolute;
-    right: 5%;
-    bottom: 5%;
+    position: relative;
+    margin-left: auto;
+    margin-right: 2rem;
+    margin-top: 4rem;
+    display: block;
 }
 .rules-button:hover {
     background-color: hsl(217, 16%, 45%);
@@ -243,15 +289,23 @@ body {
     }
     .control-panel-of-game {
         width: 90%;
-        flex-direction: column;
+        grid-template-columns: 80%;
+        grid-template-rows: repeat(5, 1fr);
         justify-content: center;
-        align-items: center;
     }
     .game-button:first-child {
         margin-right: 0;
     }
     .game-button {
         margin: 1rem 0;
+        grid-row-start: unset;
+        grid-row-end: unset;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        transform: translateX(0) !important;
+    }
+    .game-button:hover {
+        transform: scale(1.05);
     }
     .rules-button {
         position: relative;
